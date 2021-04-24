@@ -5,14 +5,14 @@ import java.nio.channels.FileLock;
 import java.nio.charset.StandardCharsets;
 import java.util.LinkedList;
 
-public class myFileSystemImpl  implements MyFileSystem{
+public class FileSystem  implements MyFileSystem{
 
     private final long MAX_FILE_SIZE = 1024*1024*1024;
     private File myfile = null;
     private String pathname = "myFile.txt";
 
 
-    public myFileSystemImpl(String filename) throws Exception{
+    public FileSystem(String filename) throws Exception{
 
         try {
 
@@ -28,7 +28,7 @@ public class myFileSystemImpl  implements MyFileSystem{
 
     }
 
-    public myFileSystemImpl(String filename,String pathname) throws Exception{
+    public FileSystem(String filename,String pathname) throws Exception{
 
         this(filename);
     }
