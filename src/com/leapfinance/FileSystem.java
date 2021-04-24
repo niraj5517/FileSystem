@@ -42,6 +42,12 @@ public class FileSystem  implements MyFileSystem{
 
         try {
 
+            if(key == null)
+                throw new Exception("key cannnot be null");
+
+            if(value == null)
+                throw new Exception("value cannnot be null");
+
             if(key.length() > 32){
                 throw new Exception("key is larger than 32 characters");
             }
