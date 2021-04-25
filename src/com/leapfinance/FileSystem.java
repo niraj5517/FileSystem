@@ -7,19 +7,17 @@ import java.util.LinkedList;
 
 public class FileSystem  implements MyFileSystem{
 
-    private final long MAX_FILE_SIZE = 1024*1024*1024;
+    private static final long MAX_FILE_SIZE = 1024*1024*1024;
     private File myfile = null;
-    private String pathname = "myFile.txt";
+    private static final String defaultFileName = "myFile.txt";
 
 
-    public FileSystem(String filename) throws Exception{
+    public FileSystem( String myFileName) throws Exception{
 
         try {
+            myfile = new File(myFileName);
 
-            myfile = new File(pathname);
-            if(myfile.exists() == false) myfile.createNewFile();
-
-
+            if(myfile.exists() == false)myfile.createNewFile();
 
         } catch (IOException e) {
             e.printStackTrace();
@@ -28,9 +26,8 @@ public class FileSystem  implements MyFileSystem{
 
     }
 
-    public FileSystem(String filename,String pathname) throws Exception{
-
-        this(filename);
+    public FileSystem() throws Exception{
+        this(defaultFileName);
     }
 
     public  void create(String key,String value, long timeToLive) throws Exception{
